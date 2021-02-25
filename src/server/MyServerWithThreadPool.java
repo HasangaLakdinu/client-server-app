@@ -6,6 +6,7 @@ import java.net.Socket;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+
 public class MyServerWithThreadPool {
     private ServerSocket server;
 
@@ -18,7 +19,6 @@ public class MyServerWithThreadPool {
     }
 
     public void serve() {
-
         try {
             ExecutorService executorService = Executors.newFixedThreadPool(10);
             while (true) {
@@ -29,13 +29,19 @@ public class MyServerWithThreadPool {
                 executorService.execute(requestProcessor);
 
             }
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
 
+
+
     public static void main(String[] args) {
         MyServerWithThreadPool myServerWithThreadPool = new MyServerWithThreadPool(9999);
-        myServerWithThreadPool.serve();
+        try {
+            myServerWithThreadPool.serve();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

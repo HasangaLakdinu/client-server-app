@@ -21,9 +21,9 @@ public class MyServer {
         try {
             while (true) {
                 Socket client = server.accept();
-                RequestProcessorThread thread = new RequestProcessorThread(client);
-                Thread t =  new Thread(thread);
-                t.start();
+                RequestProcessorThread requestProcessorThread = new RequestProcessorThread(client);
+                Thread thread =  new Thread(requestProcessorThread);
+                thread.start();
             }
         } catch (Exception err) {
             System.err.println(err);

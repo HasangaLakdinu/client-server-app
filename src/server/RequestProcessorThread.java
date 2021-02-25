@@ -13,7 +13,7 @@ public class RequestProcessorThread implements Runnable{
 
     @Override
     public void run() {
-        System.out.println(this.toString()+"Thread Started. Processing clien"+socClient);
+        System.out.println(this.toString()+"Thread Started. Processing client"+socClient);
         try {
             InputStream inputStream = socClient.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
